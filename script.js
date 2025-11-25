@@ -1,11 +1,13 @@
 // SAMPLE data for reels and freelancers
 const reels = [
+  
+  
   {
     id: "r1",
-    title: "Glow Beauty Salon",
-    category: "salon",
-    caption: "Quick bridal makeup transformation. Bookings open!",
-    video: "assets/videos/video1.mp4",
+    title: "Trends in Janpath Market",
+    category: "fashion",
+    caption: "Quick style transformation. Bookings open!",
+    video: "assets/videos/video2.mp4",
     poster: "assets/images/salon.jpg",
     likes: 152
   },
@@ -14,7 +16,7 @@ const reels = [
     title: "Tasty Food Hub",
     category: "food",
     caption: "Our new tandoori special — 30% off today",
-    video: "assets/videos/video2.mp4",
+    video: "assets/videos/video1.mp4",
     poster: "assets/images/food.jpg",
     likes: 421
   },
@@ -29,10 +31,10 @@ const reels = [
   },
   {
     id: "r4",
-    title: "Quick Cuts Salon",
+    title: "Desi Saree with local touch",
     category: "salon",
-    caption: "Express hair styling in 20 minutes",
-    video: "assets/videos/video4.mp4",
+    caption: "have authentic saree collections",
+    video: "assets/videos/video4.mp4", 
     poster: "assets/images/salon.jpg",
     likes: 67
   },
@@ -53,7 +55,7 @@ const freelancers = [
     name: "Riya Sharma",
     role: "Video Editor",
     skills: ["Video Editing", "Color Grading", "Thumbnails"],
-    img: "assets/images/salon.jpg",
+    img: "assets/images/riya.jpg",
     portfolio: ["assets/images/salon.jpg","assets/images/food.jpg"]
   },
   {
@@ -61,7 +63,7 @@ const freelancers = [
     name: "Aman Gupta",
     role: "Graphic Designer",
     skills: ["Posters","Branding","Ads"],
-    img: "assets/images/food.jpg",
+    img: "assets/images/aman.jpg",
     portfolio: ["assets/images/shop.jpg"]
   },
   {
@@ -69,7 +71,7 @@ const freelancers = [
     name: "Neha Verma",
     role: "Social Media Manager",
     skills: ["Content Strategy","Copywriting"],
-    img: "assets/images/shop.jpg",
+    img: "assets/images/neha.jpg",
     portfolio: ["assets/images/food.jpg"]
   }
 ];

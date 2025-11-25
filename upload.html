@@ -2,10 +2,109 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Upload — Bizify</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
+  <style>
+    /* Upload page enhancements */
+    .upload-page {
+      padding: 20px;
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    .upload-page h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      font-size: 28px;
+    }
+
+    .upload-form {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .upload-form label {
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .upload-form input,
+    .upload-form select,
+    .upload-form textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.05);
+      background: var(--glass);
+      color: #fff;
+      font-size: 16px;
+    }
+
+    /* Fix dropdown visibility */
+    .upload-form select {
+      appearance: none;
+      background: var(--card);
+      color: #fff;
+    }
+
+    .upload-form select option {
+      background: var(--card);
+      color: #fff;
+    }
+
+    .upload-form button {
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .upload-form button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Preview Area */
+    .preview-area {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .preview-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+      color: var(--muted);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    .preview-card video {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    /* Responsive */
+    @media(max-width: 500px) {
+      .upload-page h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -22,22 +121,22 @@
     <h2>Create a Reel / Poster</h2>
     <form class="upload-form" onsubmit="fakeUpload(event)">
       <label>Business Name</label>
-      <input id="bizName" required />
+      <input id="bizName" placeholder="Enter business name" required />
 
       <label>Category</label>
       <select id="bizCategory">
-        <option>salon</option>
-        <option>food</option>
-        <option>shop</option>
+        <option value="salon">Salon</option>
+        <option value="food">Food</option>
+        <option value="shop">Shop</option>
       </select>
 
       <label>Choose video (local - not uploaded)</label>
       <input id="bizVideo" type="file" accept="video/*" />
 
       <label>Caption</label>
-      <textarea id="bizCaption" rows="3"></textarea>
+      <textarea id="bizCaption" rows="3" placeholder="Add caption or description"></textarea>
 
-      <div style="display:flex; gap:10px">
+      <div style="display:flex; gap:10px; margin-top:12px;">
         <button class="btn" type="submit">Add to Preview</button>
         <button class="btn ghost" type="button" onclick="clearUpload()">Clear</button>
       </div>
