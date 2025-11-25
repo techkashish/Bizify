@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bizify Reels</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- load script normally (defer is fine) -->
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+
+  <!-- TOP NAV -->
+  <header class="topbar">
+    <div class="brand">Bizify</div>
+    <nav class="navlinks">
+      <a href="index.html">Home</a>
+      <a class="active" href="feed.html">Discover</a>
+      <a href="upload.html">Upload</a>
+      <a href="collab.html">Hire Freelancers</a>
+    </nav>
+  </header>
+
+  <main class="reel-page">
+
+    <!-- FILTERS -->
+    <div class="controls">
+      <select id="categorySelect">
+        <option value="all">All categories</option>
+        <option value="salon">Salon</option>
+        <option value="food">Food</option>
+        <option value="shop">Shop</option>
+      </select>
+
+      <button id="shuffleBtn" class="btn">Shuffle</button>
+    </div>
+
+    <!-- REELS LIST -->
+    <div id="reelList" class="reel-list">
+      <!-- Reels will be injected here by script.js -->
+    </div>
+
+  </main>
+
+  <!-- COLLABORATION POPUP -->
+  <div id="collabModal" class="modal hidden">
+    <div class="modal-card">
+
+      <button class="modal-close" onclick="closeCollab()">✕</button>
+
+      <div class="modal-left">
+        <img id="modalProfilePic" src="assets/images/salon.jpg" />
+        <h3 id="modalName">Freelancer Name</h3>
+        <p id="modalRole">Role</p>
+        <div id="modalSkills" class="skills"></div>
+      </div>
+
+      <div class="modal-right">
+        <h4>Send Collaboration Request</h4>
+
+        <form id="collabForm" onsubmit="submitCollab(event)">
+          <label>Your Name</label>
+          <input id="reqName" required />
+
+          <label>Your Email</label>
+          <input id="reqEmail" type="email" required />
+
+          <label>Message</label>
+          <textarea id="reqMsg" rows="4" required></textarea>
+
+          <div style="display:flex; gap:10px; margin-top:12px;">
+            <button type="submit" class="btn">Send</button>
+            <button type="button" class="btn ghost" onclick="closeCollab()">Cancel</button>
+          </div>
+        </form>
+
+        <div id="collabResult" class="collab-result"></div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

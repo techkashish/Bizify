@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Upload — Bizify</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Bizify</div>
+    <nav class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="feed.html">Discover</a>
+      <a class="active" href="upload.html">Upload</a>
+      <a href="collab.html">Hire Freelancers</a>
+    </nav>
+  </header>
+
+  <main class="upload-page">
+    <h2>Create a Reel / Poster</h2>
+    <form class="upload-form" onsubmit="fakeUpload(event)">
+      <label>Business Name</label>
+      <input id="bizName" required />
+
+      <label>Category</label>
+      <select id="bizCategory">
+        <option>salon</option>
+        <option>food</option>
+        <option>shop</option>
+      </select>
+
+      <label>Choose video (local - not uploaded)</label>
+      <input id="bizVideo" type="file" accept="video/*" />
+
+      <label>Caption</label>
+      <textarea id="bizCaption" rows="3"></textarea>
+
+      <div style="display:flex; gap:10px">
+        <button class="btn" type="submit">Add to Preview</button>
+        <button class="btn ghost" type="button" onclick="clearUpload()">Clear</button>
+      </div>
+    </form>
+
+    <div id="previewArea" class="preview-area"></div>
+  </main>
+</body>
+</html>
