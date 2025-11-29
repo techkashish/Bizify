@@ -3,14 +3,132 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hire Freelancers</title>
+  <title>Hire Freelancers — Bizify</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
+
+  <style>
+    /* --- Carousel & Card Styles --- */
+    .cards {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      scroll-behavior: smooth;
+    }
+    .cards::-webkit-scrollbar { height: 8px; }
+    .cards::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+
+    .card {
+      flex: 0 0 220px;
+      background: var(--glass);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .card:hover { transform: scale(1.05); box-shadow: 0 12px 28px rgba(255,45,85,0.35); }
+
+    .card img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; }
+
+    .badges {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 6px;
+      color: #fff;
+    }
+    .top-rated { background: gold; color: #000; }
+    .verified { background: limegreen; }
+    .most-hired { background: deepskyblue; }
+
+    .skills {
+      margin: 8px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      opacity: 0;
+      transition: 0.25s ease;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .card:hover .skills { opacity: 1; }
+
+    .rating {
+      font-size: 14px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .btn.small {
+      padding: 8px 12px;
+      font-size: 14px;
+      border-radius: 8px;
+      background: var(--accent);
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn.small:hover { background: #ff4f70; }
+
+    /* --- Glowing title --- */
+    .glow-title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 0 0 8px #ff2d55, 0 0 12px #ff2d55, 0 0 16px #ff2d55;
+      animation: colorPulse 2s infinite alternate;
+    }
+    @keyframes colorPulse {
+      0% { text-shadow: 0 0 8px #ff2d55, 0 0 12px #ff2d55, 0 0 16px #ff2d55; }
+      50% { text-shadow: 0 0 12px #ff73a0, 0 0 18px #ff73a0, 0 0 24px #ff73a0; }
+      100% { text-shadow: 0 0 8px #ff2d55, 0 0 12px #ff2d55, 0 0 16px #ff2d55; }
+    }
+
+    /* --- Freelancer background floating icons --- */
+    .freelance-bg {
+      position: relative;
+      overflow: hidden;
+    }
+    .floating-icons span {
+      position: absolute;
+      font-size: 24px;
+      opacity: 0.2;
+      animation: floatIcon 10s linear infinite;
+    }
+    .floating-icons span:nth-child(1) { left: 5%; animation-delay: 0s; }
+    .floating-icons span:nth-child(2) { left: 20%; animation-delay: 2s; }
+    .floating-icons span:nth-child(3) { left: 35%; animation-delay: 4s; }
+    .floating-icons span:nth-child(4) { left: 50%; animation-delay: 6s; }
+    .floating-icons span:nth-child(5) { left: 65%; animation-delay: 8s; }
+    .floating-icons span:nth-child(6) { left: 80%; animation-delay: 10s; }
+
+    @keyframes floatIcon {
+      0% { transform: translateY(100vh); opacity:0.2; }
+      50% { opacity:0.5; }
+      100% { transform: translateY(-10vh); opacity:0.2; }
+    }
+  </style>
 </head>
 
 <body class="freelance-bg">
 
-  <!-- FREELANCER FLOATING ICONS -->
+  <!-- Floating Freelancer Icons -->
   <div class="floating-icons">
     <span>🎥</span>
     <span>✏️</span>
@@ -34,25 +152,51 @@
     <h2 class="glow-title">Top Freelancers</h2>
 
     <div class="cards">
+      <!-- Freelancer Card 1 -->
       <div class="card" onclick="openCollab(0)">
+        <div class="badges">
+          <span class="badge top-rated">Top Rated</span>
+          <span class="badge verified">✔ Verified</span>
+        </div>
         <img src="riya.jpg" alt="Riya" />
         <h3>Riya Sharma</h3>
         <p>Video Editor • 5 years</p>
-        <button class="btn small">Request Collaboration</button>
+        <div class="skills">
+          <span>Editing</span><span>Color Grading</span><span>Thumbnails</span>
+        </div>
+        <div class="rating">⭐ 4.9</div>
+        <button class="btn small" onclick="openCollab(0)">Instant Collaboration</button>
       </div>
 
+      <!-- Freelancer Card 2 -->
       <div class="card" onclick="openCollab(1)">
+        <div class="badges">
+          <span class="badge most-hired">Most Hired</span>
+          <span class="badge verified">✔ Verified</span>
+        </div>
         <img src="aman.jpg" alt="Aman" />
         <h3>Aman Gupta</h3>
         <p>Graphic Designer • Posters & Ads</p>
-        <button class="btn small">Request Collaboration</button>
+        <div class="skills">
+          <span>Posters</span><span>Branding</span><span>Ads</span>
+        </div>
+        <div class="rating">⭐ 4.8</div>
+        <button class="btn small" onclick="openCollab(1)">Instant Collaboration</button>
       </div>
 
+      <!-- Freelancer Card 3 -->
       <div class="card" onclick="openCollab(2)">
+        <div class="badges">
+          <span class="badge top-rated">Top Rated</span>
+        </div>
         <img src="neha.jpg" alt="Neha" />
         <h3>Neha Verma</h3>
         <p>Social Media Manager • Content Strategy</p>
-        <button class="btn small">Request Collaboration</button>
+        <div class="skills">
+          <span>Content Strategy</span><span>Copywriting</span>
+        </div>
+        <div class="rating">⭐ 4.7</div>
+        <button class="btn small" onclick="openCollab(2)">Instant Collaboration</button>
       </div>
     </div>
   </main>
@@ -61,37 +205,42 @@
   <div id="collabModal" class="modal hidden">
     <div class="modal-card">
       <button class="modal-close" onclick="closeCollab()">✕</button>
-
       <div class="modal-left">
         <img id="modalProfilePic" src="assets/images/salon.jpg" alt="profile" />
         <h3 id="modalName">Name</h3>
         <p id="modalRole">Role</p>
         <div id="modalSkills" class="skills"></div>
       </div>
-
       <div class="modal-right">
         <h4>Send Collaboration Request</h4>
-
         <form id="collabForm" onsubmit="submitCollab(event)">
           <label>Your Name</label>
           <input id="reqName" required />
-
           <label>Your Email</label>
           <input id="reqEmail" type="email" required />
-
           <label>Message</label>
           <textarea id="reqMsg" rows="4" required>Hi — I'd like to collaborate on a reel/post...</textarea>
-
           <div style="display:flex; gap:10px; margin-top:12px;">
             <button type="submit" class="btn">Send Request</button>
             <button type="button" class="btn ghost" onclick="closeCollab()">Cancel</button>
           </div>
         </form>
-
         <div id="collabResult" class="collab-result"></div>
       </div>
     </div>
   </div>
 
+  <script>
+    // Prevent card click bubbling to button
+    document.querySelectorAll('.card .btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const index = Array.from(btn.parentNode.parentNode.children).indexOf(btn.parentNode);
+        openCollab(index);
+      });
+    });
+  </script>
+
 </body>
 </html>
+
