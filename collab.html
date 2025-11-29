@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype html>    
 <html>
 <head>
   <meta charset="utf-8" />
@@ -123,6 +123,40 @@
       50% { opacity:0.5; }
       100% { transform: translateY(-10vh); opacity:0.2; }
     }
+
+    /* --- Modal Inputs & Buttons --- */
+    #collabModal input, #collabModal textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: var(--card);
+      color: #fff;
+    }
+    #collabModal input::placeholder, #collabModal textarea::placeholder {
+      color: var(--muted);
+    }
+    #collabModal .btn { width: 100%; margin-top: 6px; }
+    #collabModal .btn.ghost { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+
+    /* --- Mobile-friendly & smaller modal --- */
+    #collabModal .modal-card {
+      max-width: 320px;
+      padding: 12px;
+      border-radius: 12px;
+      margin: auto;
+    }
+    #collabModal .modal-left img {
+      width: 70px;
+      height: 70px;
+    }
+    #collabModal .modal-left h3 { font-size: 16px; }
+    #collabModal .modal-left p { font-size: 13px; }
+    #collabModal h4 { font-size: 15px; margin-bottom: 6px; }
+    #collabModal input, #collabModal textarea { font-size: 13px; padding: 6px; }
+    #collabModal .btn, #collabModal .btn.small { font-size: 13px; padding: 6px 8px; }
   </style>
 </head>
 
@@ -219,13 +253,19 @@
           <label>Your Email</label>
           <input id="reqEmail" type="email" required />
           <label>Message</label>
-          <textarea id="reqMsg" rows="4" required>Hi — I'd like to collaborate on a reel/post...</textarea>
-          <div style="display:flex; gap:10px; margin-top:12px;">
-            <button type="submit" class="btn">Send Request</button>
-            <button type="button" class="btn ghost" onclick="closeCollab()">Cancel</button>
+          <textarea id="reqMsg" rows="3" required>Hi — I'd like to collaborate on a reel/post...</textarea>
+          <div style="display:flex; gap:10px; margin-top:10px;">
+            <button type="submit" class="btn small">Send</button>
+            <button type="button" class="btn small ghost" onclick="closeCollab()">Cancel</button>
           </div>
         </form>
         <div id="collabResult" class="collab-result"></div>
+
+        <hr style="margin:12px 0; border-color: rgba(255,255,255,0.2);" />
+
+        <h4>Hire & Pay Directly</h4>
+        <input type="number" id="paymentAmount" placeholder="Enter amount (₹)" />
+        <button class="btn small" onclick="hireAndPay()">Pay Now</button>
       </div>
     </div>
   </div>
@@ -239,6 +279,14 @@
         openCollab(index);
       });
     });
+
+    // Monetization Functions
+    function hireAndPay() {
+      const amt = document.getElementById("paymentAmount").value;
+      if(!amt || amt <= 0) { alert("Enter a valid amount"); return; }
+      alert(`Payment of ₹${amt} sent successfully!`);
+      document.getElementById("paymentAmount").value = "";
+    }
   </script>
 
 </body>
