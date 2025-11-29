@@ -7,7 +7,19 @@
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
 </head>
-<body>
+
+<body class="freelance-bg">
+
+  <!-- FREELANCER FLOATING ICONS -->
+  <div class="floating-icons">
+    <span>🎥</span>
+    <span>✏️</span>
+    <span>🖌️</span>
+    <span>💼</span>
+    <span>🎧</span>
+    <span>🖥️</span>
+  </div>
+
   <header class="topbar">
     <div class="brand">Bizify</div>
     <nav class="navlinks">
@@ -18,26 +30,26 @@
     </nav>
   </header>
 
-  <main class="collab-page">
-    <h2>Top Freelancers</h2>
+  <main class="collab-page enhanced">
+    <h2 class="glow-title">Top Freelancers</h2>
+
     <div class="cards">
-      <!-- Cards injected by JS -->
       <div class="card" onclick="openCollab(0)">
-        <img src="assets/images/riya.jpg" alt="Riya" />
+        <img src="riya.jpg" alt="Riya" />
         <h3>Riya Sharma</h3>
         <p>Video Editor • 5 years</p>
         <button class="btn small">Request Collaboration</button>
       </div>
 
       <div class="card" onclick="openCollab(1)">
-        <img src="assets/images/aman.jpg" alt="Aman" />
+        <img src="aman.jpg" alt="Aman" />
         <h3>Aman Gupta</h3>
         <p>Graphic Designer • Posters & Ads</p>
         <button class="btn small">Request Collaboration</button>
       </div>
 
       <div class="card" onclick="openCollab(2)">
-        <img src="assets/images/neha.jpg" alt="Neha" />
+        <img src="neha.jpg" alt="Neha" />
         <h3>Neha Verma</h3>
         <p>Social Media Manager • Content Strategy</p>
         <button class="btn small">Request Collaboration</button>
@@ -45,33 +57,41 @@
     </div>
   </main>
 
-  <!-- Modal reused from feed.html -->
+  <!-- Modal -->
   <div id="collabModal" class="modal hidden">
     <div class="modal-card">
       <button class="modal-close" onclick="closeCollab()">✕</button>
+
       <div class="modal-left">
         <img id="modalProfilePic" src="assets/images/salon.jpg" alt="profile" />
         <h3 id="modalName">Name</h3>
         <p id="modalRole">Role</p>
         <div id="modalSkills" class="skills"></div>
       </div>
+
       <div class="modal-right">
         <h4>Send Collaboration Request</h4>
+
         <form id="collabForm" onsubmit="submitCollab(event)">
           <label>Your Name</label>
           <input id="reqName" required />
+
           <label>Your Email</label>
           <input id="reqEmail" type="email" required />
+
           <label>Message</label>
           <textarea id="reqMsg" rows="4" required>Hi — I'd like to collaborate on a reel/post...</textarea>
+
           <div style="display:flex; gap:10px; margin-top:12px;">
             <button type="submit" class="btn">Send Request</button>
             <button type="button" class="btn ghost" onclick="closeCollab()">Cancel</button>
           </div>
         </form>
+
         <div id="collabResult" class="collab-result"></div>
       </div>
     </div>
   </div>
+
 </body>
 </html>

@@ -4,47 +4,87 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Bizify — Local Business Discovery</title>
+  
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <header class="topbar">
-    <div class="brand">Bizify</div>
+
+<body class="bizify-home">
+
+  <!-- BACKGROUND GRADIENT BLOBS -->
+  <div class="bg-blobs">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- TOPBAR -->
+  <header class="topbar enhanced-top">
+    <div class="logo">
+      <span class="logo-circle">B</span>
+      <span class="logo-text">Bizify</span>
+    </div>
+
     <nav class="navlinks">
-      <a href="index.html">Home</a>
+      <a class="active" href="index.html">Home</a>
       <a href="feed.html">Discover</a>
       <a href="upload.html">Upload</a>
       <a href="collab.html">Hire Freelancers</a>
     </nav>
   </header>
 
-  <main class="hero">
+
+  <!-- HERO SECTION -->
+  <main class="hero improved-hero">
     <div class="hero-left">
-      <h1>Discover Local Businesses — visually</h1>
-      <p>Swipe through short reels and posters to find trusted local services nearby.</p>
-      <a class="btn" href="feed.html">Start Exploring</a>
+      <h1 class="fade-in">Discover Local Businesses<br> Through Visual Stories</h1>
+
+      <p class="fade-in delay-1">
+        Explore reels, posters, and visual content to find trusted shops & services near you.
+      </p>
+
+      <a class="btn fade-in delay-2 hero-btn" href="feed.html">Start Exploring</a>
     </div>
-    <div class="hero-right">
-      <img src="assets/images/salon.jpg" alt="sample" />
+
+    <div class="hero-right fade-in delay-3">
+      <div class="hero-img-card">
+        <img src="bizifylogo.png" alt="Bizify Preview" />
+      </div>
     </div>
   </main>
 
-  <section class="features">
-    <div class="feature">
-      <h3>Visual-first</h3>
-      <p>Short reels & posters help customers discover your business fast.</p>
+
+  <!-- FEATURE SECTION -->
+  <section class="features upgraded-features">
+    <div class="feature card-glass fade-in delay-2">
+      <h3>🎥 Visual-first</h3>
+      <p>Experience local businesses through reels & posters for instant clarity.</p>
     </div>
-    <div class="feature">
-      <h3>Local & Category Filters</h3>
-      <p>Showcase by category and nearby location.</p>
+
+    <div class="feature card-glass fade-in delay-3">
+      <h3>📍 Location Based</h3>
+      <p>Smart filtering helps you find stores right around your area.</p>
     </div>
-    <div class="feature">
-      <h3>Collaborations</h3>
-      <p>Hire creators and freelancers to grow your reach.</p>
+
+    <div class="feature card-glass fade-in delay-4">
+      <h3>🤝 Collaborations</h3>
+      <p>Grow your business by hiring talented local freelancers & creators.</p>
     </div>
   </section>
 
+
+  <!-- CTA SECTION -->
+  <section class="cta-section fade-in delay-5">
+    <h2>Start your Bizify Journey Today</h2>
+    <p>Discover, connect and grow — all in one visual platform.</p>
+    <a href="upload.html" class="btn cta-btn">Upload Your First Reel</a>
+  </section>
+
+
+  <!-- FOOTER -->
   <footer class="footer">
-    © Bizify: Swipe>>Connect>>Grow
+    © Bizify — Swipe • Discover • Connect
   </footer>
+
 </body>
 </html>
