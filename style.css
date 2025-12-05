@@ -20,7 +20,7 @@ body{
 
 /* Top bar */
 .logo-small {
-  height: 40px;
+  height: 2px;
   object-fit: contain;
 }
 
@@ -496,5 +496,6 @@ body {
   padding: 12px 26px;
   font-size: 1.1rem;
 }
+
 
 
